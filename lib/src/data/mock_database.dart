@@ -1,5 +1,5 @@
-import '../friendo domain/events.dart';
-import '../friendo domain/location.dart';
+import '../domain/events.dart';
+import '../domain/location.dart';
 import 'database_repository.dart';
 
 class MockDatabase implements DatabaseRepository {

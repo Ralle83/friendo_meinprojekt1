@@ -1,5 +1,5 @@
-import '../friendo domain/events.dart';
-import '../friendo domain/location.dart';
+import '../domain/events.dart';
+import '../domain/location.dart';
 
 abstract class DatabaseRepository {
   /// gibt alle Quizgames aus der Datenbank zurück

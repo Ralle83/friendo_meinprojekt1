@@ -7,8 +7,10 @@ environment:
   sdk: '>=3.3.4 <4.0.0'
 
 dependencies:
+  animated_splash_screen: ^1.3.0
   flutter:
     sdk: flutter
+  #flutter_native_splash: ^2.4.0
 
 dev_dependencies:
   flutter_test:
@@ -20,3 +22,7 @@ flutter:
 
   assets:
     - assets/images/
+#flutter_native_splash: 
+  #color: "#FFF5F1"
+  #background_image: "assets/images/Logo.png"
+  #fullscreen: true
