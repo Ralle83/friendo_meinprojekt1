@@ -3,5 +3,5 @@ import 'package:friendo_meinprojekt/src/app.dart';
 import 'package:friendo_meinprojekt/src/presentation/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }

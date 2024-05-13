@@ -7,7 +7,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Image.asset(
-        "assets/images/Logo.png",
+        "assets/images/Splash_screen_logo.png",
         height: 400,
         width: 400,
       ),
