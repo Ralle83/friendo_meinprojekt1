@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:friendo_meinprojekt/src/presentation/login_screen.dart';
+import 'package:friendo_meinprojekt/src/presentation/login_figmascreen.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
         height: 400,
         width: 400,
       ),
-      nextScreen: LoginPage(),
+      nextScreen: LoginFigmaScreen(),
       splashIconSize: 250.00,
       duration: 3000,
       backgroundColor: Color(0xFFFFF5F1),
