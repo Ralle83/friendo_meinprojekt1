@@ -15,7 +15,8 @@ class MockDatabase implements DatabaseRepository {
   }
 
   @override
-  List<Event> getEvents() {
+  Future<List<Event>> getEvents() async {
+    await Future.delayed(const Duration(seconds: 2));
     return events;
   }
 }

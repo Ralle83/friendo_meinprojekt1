@@ -6,13 +6,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home:
-            // AnimatedSplashScreen(
-            //   duration: 10000,
-            //   splash: SplashScreen(),
-            //   nextScreen: LoginPage(),
-            // ),
-            SplashScreen());
+    return const MaterialApp(
+      home: SplashScreen(),
+    );
   }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "197916001844",
+    "project_id": "friendo-3587c",
+    "storage_bucket": "friendo-3587c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197916001844:android:a087f43af535f63f9f6c61",
+        "android_client_info": {
+          "package_name": "com.example.friendo_meinprojekt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGoT6-ouly-QpcbjErs2YTF8VUfLCW_LM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
