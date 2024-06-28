@@ -15,9 +15,12 @@ class SigninScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 50),
               Image.asset(
-                "assets/images/logo.png", // Das Bild sollte in deinem assets-Ordner sein
-                height: 150,
+                "assets/images/logo.png",
               ),
+              //Image.asset(
+              // "l",// Das Bild sollte in deinem assets-Ordner sein
+              //  height: 150,
+              // ),
               const SizedBox(height: 50),
               const TextField(
                 decoration: InputDecoration(

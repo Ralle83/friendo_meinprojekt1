@@ -4,10 +4,9 @@ import 'package:friendo_meinprojekt/firebase_options.dart';
 import 'package:friendo_meinprojekt/src/app.dart';
 
 Future<void> main() async {
-  runApp(const MyApp());
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  runApp(const MyApp());
 }
