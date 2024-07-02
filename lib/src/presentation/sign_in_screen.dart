@@ -93,3 +93,43 @@ class SigninScreen extends StatelessWidget {
     );
   }
 }
+
+class LoginScreen extends StatefulWidget {
+// Attribute
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+// Konstruktor
+  const LoginScreen(
+      {super.key,
+      required this.databaseRepository,
+      required this.authRepository});
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    throw UnimplementedError();
+  }
+}
+@override
+Widget build(BuildContext context) {
+final loginScreen = LoginScreen(
+databaseRepository: databaseRepository, authRepository:
+authRepository);
+final overviewScreen = OverviewScreen(
+databaseRepository: databaseRepository, authRepository:
+authRepository);
+const loginKey = ValueKey('loginScreen');
+const overviewKey = ValueKey('overviewScreen');
+return StreamBuilder(
+stream: authRepository.authStateChanges,
+builder: (context, snapshot) {
+final user = snapshot.data;
+return MaterialApp(
+key: user == null ? loginKey : overviewKey,
+theme: lightTheme,
+darkTheme: darkTheme,
+themeMode: ThemeMode.light,
+home: user == null ? loginScreen : overviewScreen,
+);
+},
+);

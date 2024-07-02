@@ -15,9 +15,9 @@ class Event {
 //toMap Methode
 Map<String, dynamic> toMap () {
 return (
-  location: Location(city: Aschaffenburg, street: Schmittstr.5),
-  title: TextDecorationStyle
-  date: DateTime
+  "location" : Location(city: Aschaffenburg, street: Schmittstr.5),
+  "title" : title,
+  "date" : date
   ); 
 
 factory Event.fromMap(Map<String, dynamic> map) {

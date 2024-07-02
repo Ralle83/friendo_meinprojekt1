@@ -8,5 +8,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  AuthRepository authRepository = AuthRepository();
   runApp(const MyApp());
 }
