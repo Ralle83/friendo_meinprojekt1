@@ -1,12 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 
 class DatabaseRepository {
   final FirebaseFirestore firestore;
 
   DatabaseRepository({required this.firestore});
 
-  // Füge hier Methoden für den Datenbankzugriff hinzu
+  // Beispielmethode zum Abrufen von Daten aus einer Firestore-Sammlung
+  Future<List<Map<String, dynamic>>> fetchData(String collectionPath) async {
+    try {
+      QuerySnapshot querySnapshot =
+          await firestore.collection(collectionPath).get();
+      return querySnapshot.docs
+          .map((doc) => doc.data() as Map<String, dynamic>)
+          .toList();
+    } catch (e) {
+      print('Error fetching data: $e');
+      return [];
+    }
+  }
 }
 
 void main() async {
@@ -30,7 +43,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: HomeScreen(databaseRepository: databaseRepository),
     );
-  }.
+  }
 }
 
 class HomeScreen extends StatelessWidget {
@@ -45,7 +58,14 @@ class HomeScreen extends StatelessWidget {
         title: Text('Firestore Example'),
       ),
       body: Center(
-        child: Text('Firestore is initialized'),
+        child: ElevatedButton(
+          onPressed: () async {
+            List<Map<String, dynamic>> data =
+                await databaseRepository.fetchData('1D3h2gEQ9pyS3NsJOUvB');
+            print(data); // Hier kannst du die UI entsprechend aktualisieren
+          },
+          child: Text('Fetch Data'),
+        ),
       ),
     );
   }
