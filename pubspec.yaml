@@ -27,7 +27,7 @@ flutter:
 
   assets:
     - assets/images/logo.png
-
+    - assets/images/google_icon.png
 #flutter_native_splash: 
   #color: "#FFF5F1"
   #background_image: "assets/images/Logo.png"

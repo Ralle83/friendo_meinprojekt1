@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+// Dummy Klassen um den Code funktionsfähig zu machen
+class DatabaseRepository {}
+
+class AuthRepository {
+  Stream<String?> get authStateChanges => Stream.value(null);
+}
+
 class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
 
@@ -17,10 +24,6 @@ class SigninScreen extends StatelessWidget {
               Image.asset(
                 "assets/images/logo.png",
               ),
-              //Image.asset(
-              // "l",// Das Bild sollte in deinem assets-Ordner sein
-              //  height: 150,
-              // ),
               const SizedBox(height: 50),
               const TextField(
                 decoration: InputDecoration(
@@ -48,7 +51,8 @@ class SigninScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFF43AA8B),
+                  backgroundColor: const Color(
+                      0xFFF43AA8B), // Hier sollte const Color verwendet werden
                   padding: const EdgeInsets.symmetric(
                     horizontal: 50,
                     vertical: 15,
@@ -95,41 +99,104 @@ class SigninScreen extends StatelessWidget {
 }
 
 class LoginScreen extends StatefulWidget {
-// Attribute
+  // Attribute
   final DatabaseRepository databaseRepository;
   final AuthRepository authRepository;
-// Konstruktor
-  const LoginScreen(
-      {super.key,
-      required this.databaseRepository,
-      required this.authRepository});
+
+  // Konstruktor
+  const LoginScreen({
+    super.key,
+    required this.databaseRepository,
+    required this.authRepository,
+  });
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  Widget build(BuildContext context) {
+    // Implementiere hier deine Build-Methode
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Login Screen'),
+      ),
+      body: Center(
+        child: Text('Login Screen Content'),
+      ),
+    );
   }
 }
-@override
-Widget build(BuildContext context) {
-final loginScreen = LoginScreen(
-databaseRepository: databaseRepository, authRepository:
-authRepository);
-final overviewScreen = OverviewScreen(
-databaseRepository: databaseRepository, authRepository:
-authRepository);
-const loginKey = ValueKey('loginScreen');
-const overviewKey = ValueKey('overviewScreen');
-return StreamBuilder(
-stream: authRepository.authStateChanges,
-builder: (context, snapshot) {
-final user = snapshot.data;
-return MaterialApp(
-key: user == null ? loginKey : overviewKey,
-theme: lightTheme,
-darkTheme: darkTheme,
-themeMode: ThemeMode.light,
-home: user == null ? loginScreen : overviewScreen,
-);
-},
-);
+
+class OverviewScreen extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+
+  const OverviewScreen({
+    super.key,
+    required this.databaseRepository,
+    required this.authRepository,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Overview Screen'),
+      ),
+      body: Center(
+        child: Text('Overview Screen Content'),
+      ),
+    );
+  }
+}
+
+void main() {
+  final DatabaseRepository databaseRepository = DatabaseRepository();
+  final AuthRepository authRepository = AuthRepository();
+
+  runApp(MyApp(
+    databaseRepository: databaseRepository,
+    authRepository: authRepository,
+  ));
+}
+
+class MyApp extends StatelessWidget {
+  final DatabaseRepository databaseRepository;
+  final AuthRepository authRepository;
+
+  const MyApp({
+    super.key,
+    required this.databaseRepository,
+    required this.authRepository,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final loginScreen = LoginScreen(
+      databaseRepository: databaseRepository,
+      authRepository: authRepository,
+    );
+    final overviewScreen = OverviewScreen(
+      databaseRepository: databaseRepository,
+      authRepository: authRepository,
+    );
+    const loginKey = ValueKey('loginScreen');
+    const overviewKey = ValueKey('overviewScreen');
+
+    return StreamBuilder<String?>(
+      stream: authRepository.authStateChanges,
+      builder: (context, snapshot) {
+        final user = snapshot.data;
+        return MaterialApp(
+          key: user == null ? loginKey : overviewKey,
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.light,
+          home: user == null ? loginScreen : overviewScreen,
+        );
+      },
+    );
+  }
+}
