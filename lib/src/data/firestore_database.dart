@@ -1,6 +1,6 @@
 import 'package:friendo_meinprojekt/src/data/database_repository.dart';
+import 'package:friendo_meinprojekt/src/domain/events.dart';
 import 'package:friendo_meinprojekt/src/domain/location.dart';
-import 'package:friendo_meinprojekt/src/domain/event.dart'; // Annahme: Event-Klasse ist definiert
 
 class FirestoreDatabase implements DatabaseRepository {
   @override

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:friendo_meinprojekt/src/app.dart';
 
 class DatabaseRepository {
   final FirebaseFirestore firestore;
@@ -31,43 +31,5 @@ void main() async {
   DatabaseRepository databaseRepository =
       DatabaseRepository(firestore: firestore);
 
-  runApp(MyApp(databaseRepository: databaseRepository));
-}
-
-class MyApp extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-
-  MyApp({required this.databaseRepository});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomeScreen(databaseRepository: databaseRepository),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  final DatabaseRepository databaseRepository;
-
-  HomeScreen({required this.databaseRepository});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Firestore Example'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            List<Map<String, dynamic>> data =
-                await databaseRepository.fetchData('1D3h2gEQ9pyS3NsJOUvB');
-            print(data); // Hier kannst du die UI entsprechend aktualisieren
-          },
-          child: Text('Fetch Data'),
-        ),
-      ),
-    );
-  }
+  runApp(MyApp());
 }
