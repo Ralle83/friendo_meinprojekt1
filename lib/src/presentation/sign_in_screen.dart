@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:friendo_meinprojekt/src/presentation/menue_screen.dart';
 
 // Dummy Klassen um den Code funktionsfähig zu machen
 class DatabaseRepository {}
@@ -13,7 +14,7 @@ class SigninScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFAEBD7),
+      backgroundColor: const Color(0xFFFFF5F1),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -49,7 +50,14 @@ class SigninScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => MenuPage(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(
                       0xFFF43AA8B), // Hier sollte const Color verwendet werden
