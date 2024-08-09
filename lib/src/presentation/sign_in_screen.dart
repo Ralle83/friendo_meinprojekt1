@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:friendo_meinprojekt/src/presentation/menue_screen.dart';
+import 'package:friendo_meinprojekt/src/presentation/register_screen.dart';
 
 // Dummy Klassen um den Code funktionsfähig zu machen
 class DatabaseRepository {}
@@ -18,88 +19,101 @@ class SigninScreen extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 50),
-              Image.asset(
-                "assets/images/logo.png",
-              ),
-              const SizedBox(height: 50),
-              const TextField(
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-              const TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 10),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text('Forgot password?'),
-                ),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => MenuPage(),
+          child: ListView(
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 40),
+                    Image.asset(
+                      "assets/images/logo.png",
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(
-                      0xFFF43AA8B), // Hier sollte const Color verwendet werden
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 50,
-                    vertical: 15,
-                  ),
-                ),
-                child: const Text('Continue'),
-              ),
-              const SizedBox(height: 20),
-              const Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Divider(
-                      thickness: 1,
-                      color: Colors.purple,
+                    const SizedBox(height: 40),
+                    const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
-                  ),
-                  Text(" or "),
-                  Expanded(
-                    child: Divider(
-                      thickness: 1,
-                      color: Colors.purple,
+                    const SizedBox(height: 20),
+                    const TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                height: 40,
-                child: IconButton(
-                  icon: Image.asset(
-                      'assets/images/google_icon.png'), // Google Icon
-                  iconSize: 40,
-                  onPressed: () {
-                    // TODO: Implement Google Sign in
-                  },
+                    const SizedBox(height: 10),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text('Forgot password?'),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => MenuPage(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(
+                            0xFFF43AA8B), // Hier sollte const Color verwendet werden
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 50,
+                          vertical: 15,
+                        ),
+                      ),
+                      child: const Text('Continue'),
+                    ),
+                    const SizedBox(height: 10),
+                    GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => RegistrationScreen())),
+                        child: const Text(
+                          "Register",
+                          style: TextStyle(color: Colors.purple),
+                        )),
+                    const SizedBox(height: 10),
+                    const Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Divider(
+                            thickness: 1,
+                            color: Colors.purple,
+                          ),
+                        ),
+                        Text(" or "),
+                        Expanded(
+                          child: Divider(
+                            thickness: 1,
+                            color: Colors.purple,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 40,
+                      child: IconButton(
+                        icon: Image.asset(
+                            'assets/images/google_icon.png'), // Google Icon
+                        iconSize: 40,
+                        onPressed: () {
+                          // TODO: Implement Google Sign in
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
+              ]),
         ),
       ),
     );
