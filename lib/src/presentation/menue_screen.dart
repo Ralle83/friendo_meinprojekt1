@@ -27,8 +27,8 @@ class MenuPage extends StatelessWidget {
           children: <Widget>[
             Column(
               children: [
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'Welcome to friendo!',
                   style: TextStyle(
                     fontSize: 24,
@@ -36,7 +36,7 @@ class MenuPage extends StatelessWidget {
                     color: Colors.teal,
                   ),
                 ),
-                Text(
+                const Text(
                   'Max Mustermann',
                   style: TextStyle(
                     fontSize: 24,
@@ -44,12 +44,12 @@ class MenuPage extends StatelessWidget {
                     color: Colors.teal,
                   ),
                 ),
-                SizedBox(height: 20),
-                Divider(color: Colors.teal),
+                const SizedBox(height: 20),
+                const Divider(color: Colors.teal),
                 CircleAvatar(
                   radius: 50,
                   backgroundColor: Colors.teal.shade100,
-                  child: Icon(
+                  child: const Icon(
                     Icons.person,
                     size: 50,
                     color: Colors.teal,
@@ -63,13 +63,15 @@ class MenuPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.info, color: Colors.teal, size: 40),
+                      icon:
+                          const Icon(Icons.info, color: Colors.teal, size: 40),
                       onPressed: () {
                         // Handle info button press
                       },
                     ),
                     IconButton(
-                      icon: Icon(Icons.settings, color: Colors.teal, size: 40),
+                      icon: const Icon(Icons.settings,
+                          color: Colors.teal, size: 40),
                       onPressed: () {
                         // Handle settings button press
                       },
@@ -80,13 +82,15 @@ class MenuPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.search, color: Colors.teal, size: 40),
+                      icon: const Icon(Icons.search,
+                          color: Colors.teal, size: 40),
                       onPressed: () {
                         // Handle search button press
                       },
                     ),
                     IconButton(
-                      icon: Icon(Icons.message, color: Colors.teal, size: 40),
+                      icon: const Icon(Icons.message,
+                          color: Colors.teal, size: 40),
                       onPressed: () {
                         // Handle message button press
                       },
@@ -96,7 +100,7 @@ class MenuPage extends StatelessWidget {
               ],
             ),
             IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.black, size: 40),
+              icon: const Icon(Icons.arrow_back, color: Colors.black, size: 40),
               onPressed: () {
                 // Handle back button press
               },
